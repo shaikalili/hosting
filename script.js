@@ -146,8 +146,9 @@ deepSearchButton.addEventListener("click", () => {
     hidden.classList.toggle("open-search");
     let deapSearch = [];
     data.forEach(host => {
-        if (host.info.speed >= speed.value && host.info.space >= space.value && host.info.price <= price.value) {
-            deapSearch.push(host);
+        if (host.info.speed >= speed.value && host.info.space >= space.value) {
+            if (host.info.price <= price.value || price.value == '')
+                deapSearch.push(host);
         }
     });
     if (deapSearch != '')
