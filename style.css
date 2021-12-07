@@ -108,9 +108,11 @@
             transform: translateY(101%);
             transition: transform 0.3s ease-in;
             text-align: center;
+            opacity: 0;
         }
         .service:hover .overview {
-            transform: translateY(0)
+            transform: translateY(0);
+            opacity: 1;
         }
         .mobile {
             display: block;
