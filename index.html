@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Our-Services</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+                <div class="nav-title">
+                    Hosting Services
+                </div>
+            </div>
+            <div class="nav-btn">
+                <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+
+            <div class="nav-links">
+                <a id="sortByName">Sort By Name</a>
+                <a id="sortByScore">Sort By score</a>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <div class="search">
+            <h3>Search For Hosting</h3>
+            <label for="services">search for A service</label>
+            <button id="srv">deep search</button>
+            <ul class="hidden-search" id="hidden">
+                <li><label for="price">price:</label> <input type="number" name="price" id="price"></li>
+                <li><label for="speed">speed:</label> <input type="number" name="speed" id="speed"></li>
+                <li><label for="space">space:</label> <input type="number" name="space" id="space"></li>
+                <li><label for="bandwith">bandwith:</label> <input type="checkbox" name="bandwith" id="bandwith"></li>
+                <button id="DeepsearchButton">Search</button>
+            </ul>
+            <label for="score">search for score</label>
+            <input type="number" name="score" id="score">
+            <button id="searchButton">Search</button>
+        </div>
+        <div id="services">
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
