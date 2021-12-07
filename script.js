@@ -60,8 +60,8 @@ function showservices(data) {
              <img src="${Service.image}">
              </div>
             
-             <div class="overview">
-             <h3>${Service.name}</h3>
+             <div class="overview" id="${Service.name}">
+             <h4>${Service.name}</h4>
              <br>
              <ul>
              <li><b>price:</b> ${Service.info.price} Nis</li>
@@ -69,7 +69,7 @@ function showservices(data) {
              <li><b>space:</b> ${Service.info.space} Gb</li>
              <li><b>bandwith:</b> ${Service.info.bandwith}</li>
              </ul>
-             <div class="mobile">
+             <div class="mobile_link">
              <a class="know-more" href="${Service.link}">Visit Site</a>
              </div>
             </div>
@@ -78,24 +78,33 @@ function showservices(data) {
                 <h3>${Service.numberScore}</h3>
                 <h4>${Service.verbalScore} </h4>
             <div class="stars">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked" id="check1"></span>
+                <span class="fa fa-star checked" id="check2"></span>
+                <span class="fa fa-star checked" id="check3"></span>
+                <span class="fa fa-star checked" id="check4"></span>
+                <span class="fa fa-star checked" id="check5"></span>
             </div>
             </div>
 
             <div class="link">
             <a class="know-more" href="${Service.link}">Visit Site</a>
             </div>
+            <div class="mobile-info">
+            <button id="${index}">more information</button>
+            </div>
         
         `;
         services.appendChild(serviceEl);
-
+        const moreInfo = document.getElementById(index);
+        const mobileInfo = document.getElementById(Service.name);
+        moreInfo.addEventListener("click", () => {
+            mobileInfo.classList.add("show_information");
+        });
+        window.addEventListener("scroll", () => {
+            mobileInfo.classList.remove("show_information");
+        });
     })
 }
-showservices(data);
 sortByName.addEventListener("click", () => {
     data.sort(function(a, b) {
         if (a.name < b.name) { return -1; }
@@ -121,7 +130,11 @@ searchButton.addEventListener("click", () => {
                 SearchData.push(host);
             }
         });
-        showservices(SearchData);
+        if (SearchData != '')
+            showservices(SearchData);
+        else {
+            notFind();
+        }
     }
 })
 
@@ -137,16 +150,18 @@ deepSearchButton.addEventListener("click", () => {
             deapSearch.push(host);
         }
     });
-    showservices(deapSearch);
+    if (deapSearch != '')
+        showservices(deapSearch);
+    else {
+        notFind();
+    }
 });
 
-function showStars() {
-
-    stars.forEach(star => {
-        const children = star.children;
-        for (var i = 0; i < children.length; i++) {
-            console.log(children[i]);
-            children[i].classList.add('checked');
-        }
-    });
+function notFind() {
+    return services.innerHTML = `<div>
+    <h3>search not found</h3>
+    <p>sorry we did not found what you are looking for <br>
+    please try another search </p>
+    </div>`
 }
+showservices(data);
