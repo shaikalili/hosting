@@ -105,7 +105,7 @@ function showservices(data) {
         });
         window.addEventListener("scroll", () => {
             moreInfo.style.display = "block";
-            serviceScore.style.display = "flex";
+            serviceScore.style.display = "block";
             mobileInfo.classList.remove("show_information");
         });
     })
