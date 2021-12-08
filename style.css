@@ -52,7 +52,12 @@ body {
     height: 100%;
 }
 
-.service-score {}
+.service-score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .service-info h3 {}
 
