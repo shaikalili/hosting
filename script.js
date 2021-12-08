@@ -74,7 +74,7 @@ function showservices(data) {
              </div>
             </div>
            
-            <div class="service-score">
+            <div class="service-score" id="${Service.link}">
                 <h3>${Service.numberScore}</h3>
                 <h4>${Service.verbalScore} </h4>
             <div class="stars">
@@ -97,12 +97,15 @@ function showservices(data) {
         services.appendChild(serviceEl);
         const moreInfo = document.getElementById(index);
         const mobileInfo = document.getElementById(Service.name);
+        const serviceScore = document.getElementById(Service.link);
         moreInfo.addEventListener("click", () => {
             moreInfo.style.display = "none";
+            serviceScore.style.display = "none";
             mobileInfo.classList.add("show_information");
         });
         window.addEventListener("scroll", () => {
             moreInfo.style.display = "block";
+            serviceScore.style.display = "flex";
             mobileInfo.classList.remove("show_information");
         });
     })
