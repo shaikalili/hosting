@@ -98,9 +98,11 @@ function showservices(data) {
         const moreInfo = document.getElementById(index);
         const mobileInfo = document.getElementById(Service.name);
         moreInfo.addEventListener("click", () => {
+            moreInfo.style.display = "none";
             mobileInfo.classList.add("show_information");
         });
         window.addEventListener("scroll", () => {
+            moreInfo.style.display = "block";
             mobileInfo.classList.remove("show_information");
         });
     })
