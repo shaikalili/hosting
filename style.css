@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia&family=Lato&family=Playfair+Display&family=Roboto:wght@300&family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display&family=Roboto:wght@300&family=Rubik:wght@300&display=swap');
 * {
     padding: 0;
@@ -150,9 +151,11 @@ body {
         align-items: center;
         line-height: 2;
     }
-    .service-score h3 {
-        font-size: 2rem;
-    }
+}
+
+.service-score h3 {
+    font-size: 2rem;
+    font-family: 'Corinthia', cursive;
 }
 
 .nav {
