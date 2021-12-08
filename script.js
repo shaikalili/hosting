@@ -70,7 +70,7 @@ function showservices(data) {
              <li><b>bandwith:</b> ${Service.info.bandwith}</li>
              </ul>
              <div class="mobile_link">
-             <a class="know-more" href="${Service.link}">Visit Site</a>
+             <a data-text="Visit..." class="know-more" href="${Service.link}">Visit...</a>
              </div>
             </div>
            

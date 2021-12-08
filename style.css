@@ -142,7 +142,35 @@ body {
     .mobile_link a {
         text-decoration: none;
         cursor: pointer;
-        color: #a15208b9;
+        color: rgb(240, 231, 200);
+        position: relative;
+        -webkit-text-stroke: 0.15vw #f16d00;
+        font-family: cursive;
+        font-size: 1.2rem;
+    }
+    .mobile_link a::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 100%;
+        color: #ca6c00;
+        -webkit-text-stroke: 0.15vw #f16d00;
+        border-right: 2px solid #ca6c00;
+        overflow: hidden;
+        animation: animate 4s ease-out infinite;
+    }
+    @keyframes animate {
+        0%,
+        10%,
+        100% {
+            width: 0;
+        }
+        70%,
+        90% {
+            width: 100%;
+        }
     }
     .service-score {
         display: flex;
