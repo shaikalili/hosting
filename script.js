@@ -44,7 +44,7 @@ data = [
     new Service('https://hostadvice.com/wp-content/uploads/2020/07/bf32e13979ac7b66bd8b54a54c039bae-1.png', 'Host Armada', new Info(250,
         500, 'Unlimited', 20), 9.9, 'excellent', 5, 'https://hostarmada.com/partners/hostadvice/shared-hosting'),
     new Service('https://hostadvice.com/wp-content/uploads/2013/12/Hostgator_logo-624x169.png', 'HostGator', new Info(150,
-        50, 'Unlimited', 30), 8.9, 'Good', 4.5, 'https://www.hostgator.com/promo/hostadvice?clickid=3TtT89zdBxyIUgg3y0R%3AYzP4UkGzl0V%3A522b380&irgwc=1&affpat=1&mpid=212439'),
+        50, 'Unlimited', 30), 8.9, 'Good', 4, 'https://www.hostgator.com/promo/hostadvice?clickid=3TtT89zdBxyIUgg3y0R%3AYzP4UkGzl0V%3A522b380&irgwc=1&affpat=1&mpid=212439'),
     new Service('https://hostadvice.com/wp-content/uploads/2019/12/logo-test.png', 'KAMATERA', new Info(200,
         50, 'Unlimited', 45), 9.1, 'Very Good', 5, 'https://www.kamatera.com/express/compute/?tcampaign=35543_389589_9j8gvcduurrocz2b__10:VT13100275502705&bta=35543&nci=5344&afp=9j8gvcduurrocz2b__10%3AVT13100275502705')
 ];
@@ -77,12 +77,12 @@ function showservices(data) {
             <div class="service-score" id="${Service.link}">
                 <h3>${Service.numberScore}</h3>
                 <h4>${Service.verbalScore} </h4>
-            <div class="stars">
-                <span class="fa fa-star checked" id="check1"></span>
-                <span class="fa fa-star checked" id="check2"></span>
-                <span class="fa fa-star checked" id="check3"></span>
-                <span class="fa fa-star checked" id="check4"></span>
-                <span class="fa fa-star checked" id="check5"></span>
+            <div class="stars" id="${Service.image}">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
             </div>
             </div>
 
@@ -95,9 +95,14 @@ function showservices(data) {
         
         `;
         services.appendChild(serviceEl);
+
         const moreInfo = document.getElementById(index);
         const mobileInfo = document.getElementById(Service.name);
         const serviceScore = document.getElementById(Service.link);
+        const stars = document.getElementById(Service.image);
+
+        showStars(index, stars.children);
+
         moreInfo.addEventListener("click", () => {
             moreInfo.style.display = "none";
             serviceScore.style.display = "none";
@@ -110,6 +115,13 @@ function showservices(data) {
         });
     })
 }
+
+function showStars(index, stars) {
+    for (let i = 0; i < data[index].stars; i++) {
+        stars[i].classList.add("checked");
+    }
+}
+
 sortByName.addEventListener("click", () => {
     data.sort(function(a, b) {
         if (a.name < b.name) { return -1; }
